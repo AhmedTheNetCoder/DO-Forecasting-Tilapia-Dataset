@@ -1,0 +1,43 @@
+id,timestamp_logged,event,note,operator,start_time,end_time,reading_id_start,reading_id_end
+1,2026-03-25 11:22:57,Other,Testing Volume,ahmed Test,2026-03-25 11:22,2026-03-25 11:22,9216,9218
+2,2026-03-25 11:24:37,Water Change: 50%,Changed: 50%. Testing volume 2,ahmed,2026-03-25 11:24,2026-03-25 11:24,9231,9233
+3,2026-03-25 15:31:51,Water Change: 34%,Changed: 34%. aa,ahmed Test,2026-03-25 15:31,2026-03-25 15:31,9294,9297
+4,2026-03-25 15:36:36,Other,Testing ,ahmed Test,2026-03-25 15:35,2026-03-25 15:36,9326,9339
+5,2026-03-25 17:16:14,Actuator: Pump Closed,"Actuator: Pump, State: Closed. Closed the pump for testing to check if do drops ",Ahmed Al Khaldi,2026-03-25 15:59,2026-03-25 17:16,9538,10221
+6,2026-03-25 19:50:44,Feeding,Feeding spoon full,Ahmed Al Khaldi,2026-03-25 19:50,2026-03-25 19:50,11587,11590
+7,2026-03-25 22:03:51,"Fish Weight: 5 fish, avg 36.2g","Weights: F1:56g, F2:43g, F3:15g, F4:33g, F5:34g | Avg: 36.2g | Total: 181.0g. Testing new functionality ",ahmed Test,2026-03-25 22:03,2026-03-25 22:03,12770,12771
+8,2026-03-25 22:09:39,Other,"testing
+",ahmed Test,2026-03-25 22:06,2026-03-25 22:09,12796,12823
+9,2026-03-25 22:36:58,Maintenance,"Sensors are turned off cause of maintance and putting it into it chambror
+",ahmed Test,2026-03-25 22:19,2026-03-25 22:36,12912,13065
+10,2026-03-25 22:37:12,Fish Weight: No data,Fish Weight: No measurements,,2026-03-25 22:37,2026-03-25 22:37,13067,13067
+11,2026-03-25 22:45:05,"Fish Weight: 6 fish, avg 111.0g","Weights: F1:122g, F2:107g, F3:111g, F4:107g, F5:105g, F6:114g | Avg: 111.0g | Total: 666.0g. First Week weight fish average ",ahmed,2026-03-25 22:45,2026-03-25 22:45,13136,13137
+12,2026-03-25 23:15:37,Water Change: 50%,Changed: 50%. to test if ph will change ,ahmed,2026-03-25 22:45,2026-03-25 23:15,13140,13407
+13,2026-03-26 11:44:33,Feeding,,Ahmed Al Khaldi,2026-03-26 11:43,2026-03-26 11:44,20037,20042
+14,2026-03-26 14:10:18,Actuator: Pump Closed,"Actuator: Pump, State: Closed. For the actuator to rest ",Ahmed Al Khaldi,2026-03-26 12:29,2026-03-26 14:10,20442,21332
+15,2026-03-26 17:47:22,Feeding,1 spoon,Ahmed Al Khaldi,2026-03-26 17:47,2026-03-26 17:47,23254,23255
+16,2026-03-27 05:08:06,Other,I wake up realized that the areator is closed I do for since when but it’s open now ,Ahmed Al Khaldi,2026-03-27 05:08,2026-03-27 05:08,29283,29283
+17,2026-03-27 10:51:42,Feeding,1 spoon,Ahmed Al Khaldi,2026-03-27 10:51,2026-03-27 10:51,32315,32317
+18,2026-03-27 21:46:14,Other,Opened the house door so direct sunlight may enter ,Ahmed Al Khaldi,2026-03-27 15:24,2026-03-27 21:46,34729,38098
+19,2026-03-27 21:46:48,Other,Opened the house door so direct sunlight may enter ,Ahmed Al Khaldi,2026-03-27 15:24,2026-03-27 21:46,34729,38105
+20,2026-03-28 11:05:35,Feeding,Handful ,Ahmed Al Khaldi,2026-03-28 11:03,2026-03-28 11:05,45148,45165
+21,2026-03-28 11:43:34,Water Change: 80%,Changed: 80%. Fish infestion water turn yellow ph rad 7.75 from previously 8.12 so to make sure ill need to change the water emergency,ahmed,2026-03-28 11:19,2026-03-28 11:43,45290,45501
+22,2026-03-28 11:44:45,Other,the issue was ammonia buildup because of the food waste and there poo so since we didnt have any sensor but this important water have to be changed maybe  every 3 days,ahmed,2026-03-28 11:44,2026-03-28 11:44,45511,45512
+23,2026-03-30 21:03:07,Other,PH dropped because one oxygen pipe was disconnected while one was working ,Ahmed Al Khaldi,2026-03-30 21:03,2026-03-30 21:03,75842,75842
+24,2026-03-30 21:40:27,Water Change: 90%,Changed: 90%. Yellowish water need change ph 7.3 ,Ahmed Al Khaldi,2026-03-30 21:16,2026-03-30 21:40,75964,76171
+25,2026-03-31 16:51:12,Feeding,,Ahmed Al Khaldi,2026-03-31 16:49,2026-03-31 16:51,86289,86300
+26,2026-04-01 11:19:32,Other,I’ll turn off the full iot setup to tak out the sad card so I can train the data ,Ahmed Al Khaldi,2026-04-01 11:14,2026-04-01 11:19,96011,1
+27,2026-04-01 21:12:47,Other,test,ahmed Test,2026-04-01 21:12,2026-04-01 21:12,1,1
+28,2026-04-01 21:17:25,Other,testing ag,ahmed Test,2026-04-01 21:17,2026-04-01 21:17,14,15
+29,2026-04-02 13:30:20,Water Change: 90%,Changed: 90%,ahmed,2026-04-02 13:09,2026-04-02 13:30,150,343
+30,2026-04-02 14:29:07,Feeding,,ahmed,2026-04-02 14:29,2026-04-02 14:29,7,7
+31,2026-04-02 16:43:16,Actuator: Pump Opened,"Actuator: Pump, State: Opened. Recommended: Monitor fish behavior",,2026-04-02 16:43,2026-04-02 16:43,46,47
+32,2026-04-03 10:54:28,Feeding,,ahmed,2026-04-03 10:54,2026-04-03 10:54,6563,6563
+33,2026-04-04 12:10:24,Water Change: 90%,Changed: 90%,ahmed,2026-04-04 11:49,2026-04-04 12:10,20057,20246
+34,2026-04-04 14:59:51,Actuator: Pump Opened,"Actuator: Pump, State: Opened. Recommended: Check water source and aeration",,2026-04-04 14:59,2026-04-04 14:59,21777,21777
+35,2026-04-04 14:59:59,Feeding,,ahmed,2026-04-04 14:59,2026-04-04 14:59,21778,21778
+36,2026-04-06 06:37:24,Water Change: 90%,Changed: 90%,ahmed,2026-04-06 06:19,2026-04-06 06:37,43067,43233
+37,2026-04-06 06:37:31,Feeding,,ahmed,2026-04-06 06:37,2026-04-06 06:37,43234,43234
+38,2026-04-08 17:41:10,Feeding,,ahmed,2026-04-08 17:41,2026-04-08 17:41,75184,75184
+39,2026-04-09 15:42:55,Water Change: 100%,Changed: 100%,Ahmed Al Khaldi,2026-04-09 15:24,2026-04-09 15:42,86913,87062
+40,2026-04-09 15:43:08,Feeding,,Ahmed Al Khaldi,2026-04-09 15:43,2026-04-09 15:43,87064,87064
