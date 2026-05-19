@@ -1,0 +1,1 @@
+{"zero_created_ms": 4108788, "zero_voltage": 0.0, "air_sat_voltage": 0.6279268, "do_saturation_mgL": 8.569885, "temperature_c": 22.385924, "model": "DO = ((V - V0)/(Vair - V0)) * DO_sat(T)", "created_ms": 2525375}

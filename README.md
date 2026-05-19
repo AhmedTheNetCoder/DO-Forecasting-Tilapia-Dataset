@@ -5,7 +5,7 @@
 
 ## Overview
 
-This repository contains the processed datasets and supporting materials from the research study:
+This repository contains the complete datasets and supporting materials from the research study:
 
 > **Low-Cost IoT-Based Dissolved Oxygen Monitoring and Short-Horizon Forecasting for Nile Tilapia Aquaculture in Oman**
 >
@@ -21,8 +21,10 @@ The dataset supports research and education in aquaculture monitoring, dissolved
 
 - **Species:** Nile tilapia (*Oreochromis niloticus*)
 - **Location:** North Al Sharqiyah, Oman
-- **Validation Period:** 1-10 April 2026
-- **Sampling Interval:** 5-minute aggregated windows
+- **Initial Testing Period:** 26 March - 1 April 2026 (open pond)
+- **Live Validation Period:** 1-10 April 2026 (controlled 180L setup)
+- **Raw Sampling Interval:** ~5-7 seconds
+- **Aggregation Window:** 5 minutes
 - **Forecasting Horizons:** 30-minute and 6-hour
 
 ### Data Collection
@@ -41,36 +43,78 @@ dataset-repository/
 ├── README.md
 ├── LICENSE
 ├── data/
+│   ├── raw/
+│   │   ├── offline/
+│   │   │   └── raw_readings.csv         # Raw sensor readings (initial testing)
+│   │   └── live/
+│   │       └── raw_readings_new.csv     # Raw sensor readings (live validation)
 │   ├── processed/
-│   │   └── aggregated_data.csv       # 5-minute aggregated sensor readings
+│   │   └── aggregated_data.csv          # 5-minute aggregated sensor readings
 │   ├── validation/
-│   │   └── validation_log_new.csv    # Live forecasting validation results
+│   │   └── validation_log_new.csv       # Live forecasting validation results
 │   ├── features/
-│   │   └── feature_importance.csv    # Model feature importance scores
-│   └── events/
-│       └── event_logs_new.csv        # Operational event records
+│   │   └── feature_importance.csv       # Model feature importance scores
+│   ├── events/
+│   │   └── event_logs_new.csv           # Operational event records
+│   └── calibration/
+│       ├── calibration_do.json          # DO sensor calibration parameters
+│       ├── calibration_ph.json          # pH sensor calibration parameters
+│       └── calibration_temp.json        # Temperature sensor calibration
 └── docs/
-    └── data_dictionary.md            # Variable descriptions
+    └── data_dictionary.md               # Variable descriptions
 ```
 
 ## Data Files
 
-### 1. Aggregated Sensor Data (`data/processed/aggregated_data.csv`)
+### 1. Raw Sensor Readings
 
-5-minute aggregated water quality measurements.
+High-frequency sensor readings captured at approximately 5-7 second intervals.
+
+#### Offline Testing (`data/raw/offline/raw_readings.csv`)
+
+Initial data collection from open pond testing in North Al Sharqiyah.
 
 | Column | Description | Unit |
 |--------|-------------|------|
-| `timestamp` | Measurement timestamp | ISO 8601 |
+| `timestamp` | Reading timestamp | ISO 8601 |
+| `node_id` | Sensor node identifier | - |
+| `temp_c` | Water temperature | °C |
+| `ph` | pH level | pH units |
+| `do_mgL` | Dissolved oxygen concentration | mg/L |
+| `events` | Event flags (if any) | - |
+
+- **Records:** 41,663
+- **Period:** 26 March - 1 April 2026
+
+#### Live Validation (`data/raw/live/raw_readings_new.csv`)
+
+Raw readings from the controlled 180L validation setup with live Nile tilapia.
+
+- **Records:** 102,670
+- **Period:** 1-10 April 2026
+
+### 2. Aggregated Sensor Data (`data/processed/aggregated_data.csv`)
+
+5-minute aggregated water quality measurements derived from raw readings.
+
+| Column | Description | Unit |
+|--------|-------------|------|
+| `timestamp` | Start of aggregation window | ISO 8601 |
 | `do_mean` | Mean dissolved oxygen | mg/L |
 | `do_min` | Minimum dissolved oxygen | mg/L |
 | `do_max` | Maximum dissolved oxygen | mg/L |
+| `do_std` | Standard deviation of DO | mg/L |
 | `temp_mean` | Mean water temperature | °C |
+| `temp_min` | Minimum temperature | °C |
+| `temp_max` | Maximum temperature | °C |
 | `ph_mean` | Mean pH level | pH units |
+| `ph_min` | Minimum pH | pH units |
+| `ph_max` | Maximum pH | pH units |
+| `reading_count` | Number of raw readings in window | count |
 
-### 2. Validation Log (`data/validation/validation_log_new.csv`)
+### 3. Validation Log (`data/validation/validation_log_new.csv`)
 
-Live deployment forecasting validation results.
+Live deployment forecasting validation results comparing predictions to observations.
 
 | Column | Description |
 |--------|-------------|
@@ -80,8 +124,10 @@ Live deployment forecasting validation results.
 | `predicted_do` | Predicted dissolved oxygen (mg/L) |
 | `actual_do` | Observed dissolved oxygen (mg/L) |
 | `error` | Prediction error (mg/L) |
+| `abs_error` | Absolute prediction error (mg/L) |
+| `direction_correct` | Whether predicted direction was correct |
 
-### 3. Feature Importance (`data/features/feature_importance.csv`)
+### 4. Feature Importance (`data/features/feature_importance.csv`)
 
 Random Forest and LightGBM feature importance scores.
 
@@ -91,7 +137,7 @@ Random Forest and LightGBM feature importance scores.
 | `Importance_30min` | Importance for 30-minute model |
 | `Importance_6hr` | Importance for 6-hour model |
 
-### 4. Event Logs (`data/events/event_logs_new.csv`)
+### 5. Event Logs (`data/events/event_logs_new.csv`)
 
 Operational events recorded during the study.
 
@@ -101,10 +147,27 @@ Operational events recorded during the study.
 | `event` | Event type (Feeding, Water Change, etc.) |
 | `notes` | Additional observations |
 
+### 6. Sensor Calibration (`data/calibration/`)
+
+Calibration parameters used for sensor value conversion.
+
+#### DO Sensor (`calibration_do.json`)
+- Air saturation calibration method
+- Voltage-to-concentration conversion model
+
+#### pH Sensor (`calibration_ph.json`)
+- Two-point calibration (pH 4.0 and pH 7.0)
+- Linear voltage-to-pH conversion
+
+#### Temperature Sensor (`calibration_temp.json`)
+- Linear correction model for DS18B20 sensor
+
 ## Key Statistics
 
 | Metric | Value |
 |--------|-------|
+| Total raw readings (offline) | 41,663 |
+| Total raw readings (live) | 102,670 |
 | Total aggregated samples | 3,041 |
 | 30-minute validated predictions | 4,657 |
 | 6-hour validated predictions | 3,391 |
@@ -119,29 +182,43 @@ Operational events recorded during the study.
 
 ```python
 import pandas as pd
+import json
+
+# Load raw sensor readings
+raw_offline = pd.read_csv('data/raw/offline/raw_readings.csv', parse_dates=['timestamp'])
+raw_live = pd.read_csv('data/raw/live/raw_readings_new.csv', parse_dates=['timestamp'])
 
 # Load aggregated sensor data
 aggregated = pd.read_csv('data/processed/aggregated_data.csv', parse_dates=['timestamp'])
 
 # Load validation results
-validation = pd.read_csv('data/validation/validation_log_new.csv', parse_dates=['prediction_timestamp', 'target_timestamp'])
+validation = pd.read_csv('data/validation/validation_log_new.csv',
+                         parse_dates=['prediction_timestamp', 'target_timestamp'])
 
 # Load feature importance
 features = pd.read_csv('data/features/feature_importance.csv')
 
 # Load event logs
 events = pd.read_csv('data/events/event_logs_new.csv', parse_dates=['timestamp_logged'])
+
+# Load calibration parameters
+with open('data/calibration/calibration_do.json', 'r') as f:
+    do_calibration = json.load(f)
 ```
 
 ### Example Analysis
 
 ```python
 # Calculate error statistics
-mae_30min = validation[validation['horizon'] == '30min']['error'].abs().mean()
-mae_6hr = validation[validation['horizon'] == '6hr']['error'].abs().mean()
+mae_30min = validation[validation['horizon'] == '30min']['abs_error'].mean()
+mae_6hr = validation[validation['horizon'] == '6hr']['abs_error'].mean()
 
 print(f"30-minute MAE: {mae_30min:.3f} mg/L")
 print(f"6-hour MAE: {mae_6hr:.3f} mg/L")
+
+# Explore raw data sampling frequency
+raw_live['time_diff'] = raw_live['timestamp'].diff().dt.total_seconds()
+print(f"Mean sampling interval: {raw_live['time_diff'].mean():.2f} seconds")
 ```
 
 ## Citation
