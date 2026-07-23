@@ -1,15 +1,17 @@
 # Dissolved Oxygen Forecasting Dataset for Nile Tilapia Aquaculture
 
-[![DOI](https://img.shields.io/badge/DOI-Pending-blue)]()
+[![DOI](https://img.shields.io/badge/DOI-10.3390%2Fs26134242-blue)](https://doi.org/10.3390/s26134242)
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 
 ## Overview
 
 This repository contains the complete datasets and supporting materials from the research study:
 
-> **Low-Cost IoT-Based Dissolved Oxygen Monitoring and Short-Horizon Forecasting for Nile Tilapia Aquaculture in Oman**
+> **Preliminary Field Evaluation of a Low-Cost IoT Workflow for Dissolved Oxygen Monitoring and Short-Horizon Forecasting in Nile Tilapia Pond Aquaculture**
 >
-> Al-Khaldi, A.M.; Al Dhuli, A.; Al-Badri, M.A.; Al Saidi, A.Z.; Ragavesh, D.
+> Al-Khaldi, A.M.; Dhandapani, R.; Al-Badri, M.A.
+>
+> *Sensors* 2026, 26, 4242
 >
 > National University of Science and Technology, Muscat, Oman
 
@@ -226,12 +228,16 @@ print(f"Mean sampling interval: {raw_live['time_diff'].mean():.2f} seconds")
 If you use this dataset in your research, please cite:
 
 ```bibtex
-@article{alkhaldi2026dissolved,
-  title={Low-Cost IoT-Based Dissolved Oxygen Monitoring and Short-Horizon Forecasting for Nile Tilapia Aquaculture in Oman},
-  author={Al-Khaldi, Ahmed Mohammed and Al Dhuli, Amal and Al-Badri, Mohammed Ahmed and Al Saidi, Awasif Zaid and Ragavesh, D.},
-  journal={Fishes},
+@article{alkhaldi2026preliminary,
+  title={Preliminary Field Evaluation of a Low-Cost IoT Workflow for Dissolved Oxygen Monitoring and Short-Horizon Forecasting in Nile Tilapia Pond Aquaculture},
+  author={Al-Khaldi, Ahmed M. and Dhandapani, Ragavesh and Al-Badri, Mohammed A.},
+  journal={Sensors},
+  volume={26},
+  number={13},
+  pages={4242},
   year={2026},
-  publisher={MDPI}
+  publisher={MDPI},
+  doi={10.3390/s26134242}
 }
 ```
 
@@ -251,9 +257,14 @@ Under the following terms:
 For questions about this dataset or to request additional data:
 
 **Corresponding Author:**
-Dr. Ragavesh D.
+Dr. Ragavesh Dhandapani
 National University of Science and Technology
 Muscat, Oman
+Email: ragavesh@nu.edu.om
+
+**First Author:**
+Ahmed M. Al-Khaldi
+Email: ahmed200251@nu.edu.om
 
 ## Acknowledgements
 
